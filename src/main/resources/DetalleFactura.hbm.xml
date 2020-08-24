@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="Modelo.DetalleFactura" table="e01_detalle_factura">
+    <composite-id>
+      <key-many-to-one class="Modelo.Factura" column="nro_factura" name="factura"/>
+      <key-many-to-one class="Modelo.Producto" column="codigo_producto" name="producto"/>
+    </composite-id>
+    <property column="nro_item" name="nroItem"/>
+    <property name="cantidad"/>
+  </class>
+</hibernate-mapping>

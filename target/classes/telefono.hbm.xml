@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="Modelo.Telefono" table="e01_telefono">
+    <composite-id name="numero">
+      <key-property column="codigo_area" name="codigoArea"/>
+      <key-property column="nro_telefono" name="nroTelefono"/>
+    </composite-id>
+    <property name="tipo"/>
+  </class>
+</hibernate-mapping>

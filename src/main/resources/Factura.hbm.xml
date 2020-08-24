@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="Modelo.Factura" table="e01_factura">
+    <id column="Nro_Factura" name="nroFactura"/>
+    <property name="fecha"/>
+    <property column="total_Con_Iva" name="totalConIva"/>
+    <property name="iva"/>
+    <property column="total_sin_Iva" name="totalSinIva"/>
+    <many-to-one class="Modelo.Cliente" column="nro_cliente" name="cliente"/>
+    
+    <bag cascade="save-update, delete" inverse="true" name="detalleFactura" table="e01_detalle_factura">        
+      <key column="nro_factura" not-null="true"/>
+      <one-to-many class="Modelo.DetalleFactura"/>
+    </bag>
+  </class>
+</hibernate-mapping>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="Modelo.Cliente" table="e01_cliente">
+    <id column="nro_cliente" name="nroCliente"/>
+    <property name="nombre"/>
+    <property name="apellido"/>
+    <property name="direccion"/>
+    <property name="activo"/>    
+    <!--  <bag cascade="save-update,delete" name="telefonos" table="E01_Telefono">  original-->
+    <bag cascade="save-update,delete,delete-orphan" name="telefonos" table="E01_Telefono">           <!-- delete orphan, borraria los objetos hijos sin padre  -->    
+      <key column="nro_cliente" not-null="true"/>
+      <one-to-many class="Modelo.Telefono"/>
+    </bag>
+  </class>
+</hibernate-mapping>
